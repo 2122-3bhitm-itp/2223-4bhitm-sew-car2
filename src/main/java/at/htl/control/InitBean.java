@@ -20,8 +20,13 @@ public class InitBean {
     String personFileName;
     
     void startUp(@Observes StartupEvent event) {
+        importCarsIntoDb(carFileName);
         importFile(carFileName);
         importFile(personFileName);
+    }
+
+    void importCarsIntoDb(String carFileName) {
+
     }
 
     List<String> importFile(String fileName) {
