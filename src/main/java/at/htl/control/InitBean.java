@@ -24,7 +24,18 @@ public class InitBean {
         importFile(personFileName);
     }
 
-    void importFile(String fileName) {
+    List<String> importFile(String fileName) {
         System.out.println(fileName);
+        try {
+            var path = Paths.get(getClass().getClassLoader()
+                   .getResource(fileName).toURI());
+
+            Stream<String> lines = Files.lines(path);
+            return lines.toList();
+
+        } catch (IOException | URISyntaxException e) {
+            throw new RuntimeException(e);
+        }
+
      }
 }
