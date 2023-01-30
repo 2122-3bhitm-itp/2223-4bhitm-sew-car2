@@ -5,6 +5,7 @@ import org.eclipse.microprofile.config.inject.ConfigProperty;
 import org.junit.jupiter.api.Test;
 
 import javax.inject.Inject;
+import javax.transaction.Transactional;
 import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -40,5 +41,10 @@ class InitBeanTest {
         for (int i = 0; i < 10; i++) {
             System.out.println(lines.get(i));
         }
+    }
+
+    @Test
+    void importCarsIntoDb_ok() {
+        initBean.importCarsIntoDb(carFileName);
     }
 }

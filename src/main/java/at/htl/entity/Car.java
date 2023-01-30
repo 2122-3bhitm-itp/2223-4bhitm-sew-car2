@@ -62,4 +62,15 @@ public class Car {
     public void setVin(String vin) {
         this.vin = vin;
     }
+
+    @Override
+    public String toString() {
+        return "Car{" +
+                "id=" + id +
+                ", make='" + make + '\'' +
+                ", model='" + model + '\'' +
+                ", modelYear=" + modelYear +
+                ", vin='" + vin + '\'' +
+                '}';
+    }
 }
